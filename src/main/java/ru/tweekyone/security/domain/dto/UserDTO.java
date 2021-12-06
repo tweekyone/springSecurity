@@ -1,4 +1,4 @@
-package ru.tweekyone.security.controller.dto;
+package ru.tweekyone.security.domain.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -32,6 +32,12 @@ public class User {
     private String email;
 
     @NonNull
+    private String password;
+
+    @NonNull
+    private boolean enabled;
+
+    @NonNull
     @Enumerated(EnumType.STRING)
     private Sex sex;
 

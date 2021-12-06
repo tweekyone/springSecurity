@@ -5,7 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import ru.tweekyone.security.controller.dto.UserDTO;
+import ru.tweekyone.security.domain.dto.UserDTO;
 import ru.tweekyone.security.model.User;
 import ru.tweekyone.security.repository.UserRepository;
 
@@ -31,6 +31,10 @@ public class UserService implements UserDetailsService {
 
     public User getUserByName(String name) {
         return userRepository.getUserByName(name).orElseThrow(() -> new RuntimeException());
+    }
+
+    public User getUserByEmail(String email) {
+        return userRepository.getUserByName(email).orElseThrow(() -> new RuntimeException());
     }
 
     @Override

@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.tweekyone.security.controller.dto.UserDTO;
+import ru.tweekyone.security.domain.dto.UserDTO;
 import ru.tweekyone.security.model.User;
 import ru.tweekyone.security.service.UserService;
 
