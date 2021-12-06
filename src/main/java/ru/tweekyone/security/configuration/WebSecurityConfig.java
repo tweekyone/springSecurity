@@ -18,7 +18,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private UserService userService;
 
-    public void configureGlobalAuth(final AuthenticationManagerBuilder builder) {
+    public void configureGlobalAuth(final AuthenticationManagerBuilder builder) throws Exception {
         builder.userDetailsService(userService);
     }
 }

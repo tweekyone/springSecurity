@@ -1,6 +1,7 @@
 package ru.tweekyone.security.model;
 
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 

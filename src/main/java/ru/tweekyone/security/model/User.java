@@ -58,6 +58,7 @@ public class User {
     public User(@NonNull String firstname,
                 @NonNull String lastname,
                 @NonNull Integer age,
+                @NonNull String password,
                 @NonNull Sex sex,
                 @NonNull String email,
                 @NonNull LocalDateTime bDay,
@@ -65,6 +66,7 @@ public class User {
         this.firstname = firstname;
         this.lastname = lastname;
         this.age = age;
+        this.password = password;
         this.sex = sex;
         this.email = email;
         this.bDay = bDay;

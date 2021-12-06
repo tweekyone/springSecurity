@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import ru.tweekyone.security.domain.UserDetailsAuthImpl;
 import ru.tweekyone.security.domain.dto.UserDTO;
 import ru.tweekyone.security.model.User;
 import ru.tweekyone.security.repository.UserRepository;
@@ -20,8 +21,8 @@ public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
 
     public User saveUser(UserDTO userDto) {
-        User user = new User(userDto.getFirstname(), userDto.getLastname(), userDto.getAge(), userDto.getSex(),
-                userDto.getEmail(), LocalDateTime.now(), userDto.getRoles());
+        User user = new User(userDto.getFirstname(), userDto.getLastname(), userDto.getAge(), userDto.getPassword(),
+                userDto.getSex(), userDto.getEmail(), LocalDateTime.now(), userDto.getRoles());
         return userRepository.save(user);
     }
 
@@ -39,7 +40,9 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String userEmail) throws UsernameNotFoundException {
-
-        return null;
+        UserDetailsAuthImpl userDetails = userRepository.getUserByEmail(userEmail)
+                .orElseThrow(
+                        () -> new UsernameNotFoundException(String.format("User with Email %s not found", userEmail)));
+        return userDetails;
     }
 }
