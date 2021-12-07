@@ -17,5 +17,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> getUserByName(String name);
 
     @EntityGraph(attributePaths = "{roles}")
-    Optional<UserDetailsAuthImpl> getUserByEmail(String email);
+    Optional<UserDetailsAuthImpl > getUserByEmail(String email);
 }

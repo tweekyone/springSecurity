@@ -1,17 +1,11 @@
 package ru.tweekyone.security.domain;
 
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import ru.tweekyone.security.model.Role;
-import ru.tweekyone.security.model.Sex;
 import ru.tweekyone.security.model.User;
 
-import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @NoArgsConstructor
