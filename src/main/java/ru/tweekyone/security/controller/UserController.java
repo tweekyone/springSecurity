@@ -1,6 +1,6 @@
 package ru.tweekyone.security.controller;
 
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +9,7 @@ import ru.tweekyone.security.model.User;
 import ru.tweekyone.security.service.UserService;
 
 @RestController
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class UserController {
 
     private final UserService userService;

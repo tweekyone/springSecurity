@@ -3,7 +3,6 @@ package ru.tweekyone.security.repository;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.tweekyone.security.domain.UserDetailsAuthImpl;
 import ru.tweekyone.security.model.User;
 
 import java.util.Optional;
@@ -14,8 +13,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     User save(User user);
 
-    Optional<User> getUserByName(String name);
+    Optional<User> getUserByFirstname(String name);
 
-    @EntityGraph(attributePaths = "{roles}")
-    Optional<UserDetailsAuthImpl > getUserByEmail(String email);
+    @EntityGraph(attributePaths = {"roles"}, type = EntityGraph.EntityGraphType.LOAD)
+    Optional<User> getUserByEmail(String email);
 }

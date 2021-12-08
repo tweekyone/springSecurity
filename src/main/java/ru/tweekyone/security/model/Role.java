@@ -1,7 +1,6 @@
 package ru.tweekyone.security.model;
 
 import lombok.*;
-import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 
@@ -19,6 +18,7 @@ public class Role {
     @EqualsAndHashCode.Exclude
     Long id;
 
+    //must contains "ROLE_" prefix
     @Column(name = "name")
     String role;
 }

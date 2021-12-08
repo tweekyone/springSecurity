@@ -19,6 +19,7 @@ public class UserDetailsAuthImpl extends User implements UserDetails {
                 user.getPassword(),
                 user.getSex(),
                 user.getEmail(),
+                user.isEnabled(),
                 user.getBDay(),
                 user.getRoles());
     }

@@ -22,7 +22,7 @@ public class UserService implements UserDetailsService {
 
     public User saveUser(UserDTO userDto) {
         User user = new User(userDto.getFirstname(), userDto.getLastname(), userDto.getAge(), userDto.getPassword(),
-                userDto.getSex(), userDto.getEmail(), LocalDateTime.now(), userDto.getRoles());
+                userDto.getSex(), userDto.getEmail(), true, LocalDateTime.now(), userDto.getRoles());
         return userRepository.save(user);
     }
 
@@ -31,16 +31,17 @@ public class UserService implements UserDetailsService {
     }
 
     public User getUserByName(String name) {
-        return userRepository.getUserByName(name).orElseThrow(() -> new RuntimeException());
+        return userRepository.getUserByFirstname(name).orElseThrow(() -> new RuntimeException());
     }
 
     public User getUserByEmail(String email) {
-        return userRepository.getUserByName(email).orElseThrow(() -> new RuntimeException());
+        return userRepository.getUserByEmail(email).orElseThrow(() -> new RuntimeException());
     }
 
     @Override
     public UserDetails loadUserByUsername(String userEmail) throws UsernameNotFoundException {
         UserDetailsAuthImpl userDetails = userRepository.getUserByEmail(userEmail)
+                .map(UserDetailsAuthImpl::new)
                 .orElseThrow(
                         () -> new UsernameNotFoundException(String.format("User with Email %s not found", userEmail)));
         return userDetails;
